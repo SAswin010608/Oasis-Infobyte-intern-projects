@@ -1,0 +1,46 @@
+#Calculates the BMI based on user input
+def calculator(weight, height):
+    bmi = weight / (height ** 2)
+    return bmi
+
+#Classifies the user based on the calculated bmi
+def classify (bmi):
+    if bmi < 18.5:
+        return "You are underweight!"
+    elif 18.5 <= bmi < 24.9:
+        return "You are normal weight!"
+    elif 25 <= bmi < 29.9:
+        return "You are overweight!"
+    else:
+        return "You are obese!"
+
+def main():
+    try:
+        #Keeps looping until user enters a valid input
+        while True:
+            weight = float(input("Enter your weight in kg: ")) #Askes for user's weight
+            if (weight <= 0):
+                print("Please enter a valid weight in Kg")
+            else:
+                break
+        while True:
+            height = float(input("Enter your height in meters: ")) #Askes for user's height
+            if (height <=0):
+                print("Please enter a valid height in meters")-1
+            else:
+                break
+        
+        bmi = calculator(weight, height)
+        category = classify(bmi)
+
+        #prints BMI and user's catogory
+        print(f"Your BMI is {bmi:.2f}")
+        print(f"{category}")
+        print("")
+    
+    
+    except ValueError:
+        print("Please enter valid values for weight and height")
+    
+    
+main()
